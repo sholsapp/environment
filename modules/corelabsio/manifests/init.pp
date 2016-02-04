@@ -19,6 +19,7 @@ class corelabsio {
     'gdb',
     'lcov',
     'libtool',
+    'mosh',
     'screen',
     'sudo',
     'tree',

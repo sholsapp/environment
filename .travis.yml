@@ -9,13 +9,9 @@ os:
   - linux
 
 script:
+  - sudo gem install puppet
   - sudo ./install.sh
 
 env:
   matrix:
-    - PUPPET_GEM_VERSION="~> 3.0.0"
-
-addons:
-  apt:
-    packages:
-      - puppet
+    - PUPPET_GEM_VERSION="~> 3.7.2"

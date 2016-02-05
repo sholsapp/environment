@@ -1,9 +1,5 @@
 # environment
 
-<a href="https://travis-ci.org/corelabsio/environment">
-<img src='https://img.shields.io/travis/corelabsio/environment/master.svg?style=flat-square' />
-</a>
-
 These instructions are useful for getting your development environment up and
 running.
 

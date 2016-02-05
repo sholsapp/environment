@@ -1,13 +1,14 @@
 language: bash
 
+sudo: required
+
 os:
   - linux
 
 script:
-  - ./install.sh
+  - sudo ./install.sh
 
 addons:
   apt:
     packages:
-      - git
       - puppet

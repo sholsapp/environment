@@ -11,6 +11,10 @@ os:
 script:
   - sudo ./install.sh
 
+env:
+  matrix:
+    - PUPPET_GEM_VERSION="~> 3.0.0"
+
 addons:
   apt:
     packages:

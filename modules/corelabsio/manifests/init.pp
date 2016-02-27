@@ -1,10 +1,15 @@
 class corelabsio {
 
+  # We assume that your user is named this.
   $login = 'ubuntu'
+
+  @user { $login:
+    comment => 'Development User',
+  }
 
   include 'docker'
   include corelabsio::workspace
-  include corelabsio::python
+  include corelabsio::snake
 
   $packages = [
     'autoconf',
@@ -12,8 +17,10 @@ class corelabsio {
     'g++',
     'gcc',
     'gdb',
+    'lcov',
     'libtool',
     'screen',
+    'sudo',
     'tree',
     'valgrind',
     'vim',
@@ -25,7 +32,6 @@ class corelabsio {
 
   $directories = [
     "/home/$login/bin",
-    "/home/$login/workspace",
     "/home/$login/public_html",
     "/home/$login/.ssh",
     "/home/$login/.virtualenvs",
@@ -41,5 +47,7 @@ class corelabsio {
     ensure => file,
     source => 'puppet:///modules/corelabsio/motd';
   }
+
+  User<| title == $login |> { groups +> ['sudo', 'docker']}
 
 }

@@ -18,19 +18,23 @@ class corelabsio::workspace {
     group => $corelabsio::login,
   }
 
-  define corelabs_github (String $owner, String $repo) {
+  define corelabs_github ($owner, $repo = $title) {
     vcsrepo { "/home/$corelabsio::login/workspace/$repo":
       ensure   => present,
       provider => 'git',
       source   => "https://github.com/$owner/$repo.git",
       owner    => $corelabsio::login,
       group    => $corelabsio::login,
+      submodules => true,
     }
   }
 
-  corelabs_github {[
-    ['sholsapp', 'gallocy'],
-    ['corelabsio', 'cthulhu'],
-  ]:}
+  corelabs_github { 'gallocy':
+    owner => 'sholsapp',
+  } 
+
+  corelabs_github { 'cthulhu':
+    owner => 'corelabsio',
+  }
 
 }

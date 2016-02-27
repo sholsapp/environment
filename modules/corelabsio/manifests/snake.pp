@@ -1,4 +1,4 @@
-class personal::my_python {
+class corelabsio::snake {
 
   class { 'python':
     version    => 'system',
